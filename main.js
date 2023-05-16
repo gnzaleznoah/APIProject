@@ -103,12 +103,12 @@ function init(){
                 });
             });
     })
-    .catch((err) => console.log("Oops!", err));
+    .catch((err) => console.log("Nope!!", err));
     });
 
-    //Clear Out For new Muscle Selection 
-    const container = document.querySelector('.work-out-list');
-    container.innerHTML = "";
+    // //Clear Out For new Muscle Selection 
+    // const container = document.querySelector('.work-out-list');
+    // container.innerHTML = "";
 
 }
 
