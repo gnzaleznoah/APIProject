@@ -1,13 +1,23 @@
 document.addEventListener('DOMContentLoaded', init);
 
 const muscleGroup = [
-    "biceps",
     "abdominals",
-    "hamstrings",
-    "quadriceps",
+    "abductors",
+    "adductors",
+    "biceps",
+    "calves",
+    "chest",
+    "forearms",
     "glutes",
-    "chest"
-];
+    "hamstrings",
+    "lats",
+    "lower_back",
+    "middle_back",
+    "neck",
+    "quadriceps",
+    "traps",
+    "triceps"
+    ];
 const difficulty = [
     "beginner",
     "intermediate",
@@ -69,7 +79,7 @@ function init(){
 
                 const diffLabel = document.querySelector('#difficultyLabel');
                 diffLabel.classList.remove("hide");
-                
+
                 const beg = document.querySelector('.beginner');
                 const int = document.querySelector('.intermediate');
                 const exp = document.querySelector('.expert ');
@@ -90,9 +100,7 @@ function init(){
                         beg.classList('.hide');
                         int.classList('.hide')
                     }
-
                 });
-
             });
     })
     .catch((err) => console.log("Oops!", err));
