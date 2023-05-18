@@ -29,12 +29,19 @@ function init(){
     })
     .catch((err) => console.log("Nope!!", err));
 
+    difficulty.forEach((item) =>{
+        const option = document.createElement('OPTION');
+        option.value = item;
+        option.innerText = item;
+        difficulty1.appendChild(option);
+    });
+
     //For Dropdown Menu
      workout1.addEventListener('change',(e) => {
         code = e.target.value;
 
         const url = 'https://api.api-ninjas.com/v1/exercises?muscle=' + code;
-        console.log(url);
+        console.log('url', url);
         fetch( url, {
             method: "GET",
             headers: {
@@ -42,7 +49,7 @@ function init(){
             },
             contentType: 'application/json',
             success: function(result) {
-                console.log(result);
+                console.log('result:', result);
             },
             error: function ajaxError(jqXHR) {
                 console.error('Error: ', jqXHR.responseText);
@@ -51,17 +58,11 @@ function init(){
         .then((response) => response.json())
         .then((data) => {
             exercise = data;
-    });
-
-    difficulty.forEach((item) =>{
-        const option = document.createElement('OPTION');
-        option.value = item.codePointAt;
-        option.innerText = item;
-        difficulty1.appendChild(option);
-    });
-    //Clear Out For new Muscle Selection 
-    const container = document.querySelector('.work-out-list');
-    container.innerHTML = "";
+            console.log('result1: ', exercise);
+        });
+        //Clear Out For new Muscle Selection 
+        const container = document.querySelector('.work-out-list');
+        container.innerHTML = "";
 
         if(exercise.value === exercise.value){
             exercise.forEach((item) =>{  
@@ -74,39 +75,48 @@ function init(){
                                 ;
                 let workList = document.querySelector('.work-out-list');
                 workList.innerHTML += workoutPrinted;
+               
             })
+
         }
         else {       
             let displayMessage = document.createElement("P");
             displayMessage.innerHTML = "Select a Muscle to Show Exercises";
             container.appendChild(displayMessage);
-            console.log(exercise); 
+            console.log('exercise2:', exercise); 
         }
+        console.log('ex3', exercise);
         const diffLabel = document.querySelector('#difficultyLabel');
         diffLabel.classList.remove("hide");
-        console.log(exercise);
+  
         });
 
-    const beg = document.querySelector('.beginner');
-    const int = document.querySelector('.intermediate');
-    const exp = document.querySelector('.expert ');
     
     difficulty1.addEventListener('change', (e) => {
-        const intensity = e.target.value;
-        console.log(intensity);
+        let container = document.querySelectorAll('.work-out-list section');
+        const beg = document.querySelector('.beginner');
+        const int = document.querySelector('.intermediate');
+        const exp = document.querySelector('.expert');
 
-        if(intensity.value === 'beginner'){
-            int.classList('.hide');
-            exp.classList('.hide')
-        }
-        else if(intensity.value === 'intermediate'){
-            beg.classList('.hide');
-            exp.classList('.hide')
-        }
-        else if (intensity.value === 'expert'){
-            beg.classList('.hide');
-            int.classList('.hide')
-        }
+        const intensity = e.target.value;
+        // console.log(e.target.value);
+
+        container.forEach((item) => {
+            item.classList.add('hide');
+            
+            if(item.classList.contains('beginner')){
+                int.classList.remove('hide');            
+                (exp ? classList.remove('hide')  : '');
+            }
+            else if(item.classList.contains('intermediate')){
+                beg.classList.remove('hide');
+                (exp ? classList.remove('hide')  : '');
+            }
+            else if (item.classList.contains('expert')){
+                beg.classList.remove('hide');
+                int.classList.remove('hide')
+            }
+        });
     });
 }
 
