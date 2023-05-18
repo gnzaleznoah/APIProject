@@ -30,6 +30,15 @@ function startcss(){
     h2.classList.add('heading1');
     h2.classList.add('h2heading');
 
+    let description = document.createElement("P");
+    description.innerHTML = 'Generate 10 workouts with targeting specific muscle groups <br> Start by selecting muscle group from dropdown menu';
+
+    let container1 = document.querySelector(".form-container");
+    container1.insertBefore(description, document.querySelector('#formid'));
+
+    description.classList.add('instructions');
+
+
 // Style For Form 
     let formL = document.querySelector("form");
     formL.classList.add('form1');
