@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', startcss);
 
 function startcss(){
+    let body = document.querySelector("body");
+    body.classList.add('body');
+
     let headerBox = document.querySelector(".media-box");
 
     let headerMedia =     
