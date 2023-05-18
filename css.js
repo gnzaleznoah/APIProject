@@ -31,7 +31,7 @@ function startcss(){
     h2.classList.add('h2heading');
 
     let description = document.createElement("P");
-    description.innerHTML = 'Generate 10 workouts with targeting specific muscle groups <br> Start by selecting muscle group from dropdown menu';
+    description.innerHTML = 'Generate 10 workouts by targeting a specific muscle groups <br> Start by selecting a muscle group from dropdown menu';
 
     let container1 = document.querySelector(".form-container");
     container1.insertBefore(description, document.querySelector('#formid'));
