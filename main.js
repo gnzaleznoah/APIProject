@@ -88,7 +88,7 @@ function init(){
         console.log('ex3', exercise);
         const diffLabel = document.querySelector('#difficultyLabel');
         diffLabel.classList.remove("hide");
-  
+        diffLabel.classList.add("form-scace");
         });
 
     
